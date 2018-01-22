@@ -7,11 +7,9 @@ protocol BookListUseCase {
 
 class DefaultBookListUseCase: BookListUseCase {
     private let dataSource: BookListDataSource
-    private let operationQueue: OperationQueue
     
-    init(dataSource: BookListDataSource, operationQueue: OperationQueue = OperationQueue()) {
+    init(dataSource: BookListDataSource) {
         self.dataSource = dataSource
-        self.operationQueue = operationQueue
     }
     
     func loadBookList(date: Date, completionHandler: @escaping FetchCompletionHandler) {
