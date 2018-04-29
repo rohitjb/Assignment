@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		378848D8CF54F15684CAB401 /* Pods_OracleAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122C19D2F7DD1205F1F2BF23 /* Pods_OracleAssignmentTests.framework */; };
+		9E8C99D420967AA300C18CE1 /* GenericTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8C99D320967AA300C18CE1 /* GenericTableView.swift */; };
 		9EC707CE20107910004CEAFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC707CD20107910004CEAFD /* Assets.xcassets */; };
 		9EC707D120107910004CEAFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC707CF20107910004CEAFD /* LaunchScreen.storyboard */; };
 		9EC707DC20107911004CEAFD /* OracleAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC707DB20107911004CEAFD /* OracleAssignmentTests.swift */; };
@@ -54,6 +55,7 @@
 		59DFB2291903BCEA5B91E005 /* Pods-OracleAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OracleAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-OracleAssignment/Pods-OracleAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		72DCB211F143F6740C181B41 /* Pods-OracleAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OracleAssignmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OracleAssignmentTests/Pods-OracleAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		82925C3E6838B951F19C21DA /* Pods-OracleAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OracleAssignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OracleAssignment/Pods-OracleAssignment.debug.xcconfig"; sourceTree = "<group>"; };
+		9E8C99D320967AA300C18CE1 /* GenericTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableView.swift; sourceTree = "<group>"; };
 		9EC707C320107910004CEAFD /* OracleAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OracleAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC707CD20107910004CEAFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EC707D020107910004CEAFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 				72DCB211F143F6740C181B41 /* Pods-OracleAssignmentTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E8C99D220967A0000C18CE1 /* CustomTableView */ = {
+			isa = PBXGroup;
+			children = (
+				9E8C99D320967AA300C18CE1 /* GenericTableView.swift */,
+			);
+			path = CustomTableView;
 			sourceTree = "<group>";
 		};
 		9EC707BA20107910004CEAFD = {
@@ -208,6 +218,7 @@
 		9EC707F12013977E004CEAFD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E8C99D220967A0000C18CE1 /* CustomTableView */,
 				9EC7080B2013A603004CEAFD /* ActivityIndicatorView.swift */,
 				9EC708002013A0B0004CEAFD /* BookListView.swift */,
 				9EC708022013A0C2004CEAFD /* DateSelectionView.swift */,
@@ -507,6 +518,7 @@
 				9EC7083A20140ECA004CEAFD /* JSONComponent.swift in Sources */,
 				9EC707EB20139637004CEAFD /* AppDelegate.swift in Sources */,
 				9EC707FD20139C93004CEAFD /* BookListUseCase.swift in Sources */,
+				9E8C99D420967AA300C18CE1 /* GenericTableView.swift in Sources */,
 				9EC7081B2013C2A6004CEAFD /* List.swift in Sources */,
 				9EC7083520140A74004CEAFD /* Result.swift in Sources */,
 				9EC708032013A0C2004CEAFD /* DateSelectionView.swift in Sources */,

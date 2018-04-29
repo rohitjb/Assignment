@@ -6,7 +6,7 @@ class BookTableViewCell: UITableViewCell {
     private let bookPublisherLabel = UILabel()
 
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }

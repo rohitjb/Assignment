@@ -5,11 +5,18 @@ protocol BookListViewControllerDelegate: class {
 }
 
 class BookListView: UIView, BookListDisplayer, DateSelectionViewDelegate {
-    private let bookList: UITableView = UITableView()
+    
+    private let bookList = GenericTableView<Book, BookTableViewCell> { (cell, book) in
+        cell.upateWithBook(book: book)
+    }
+    
+    lazy var bookListView: UIView = {
+        return bookList.genericTableView()
+    }()
+
     private let searchView = UISearchBar()
     private let activityIndicator = ActivityIndicatorView()
     private let searchViewAdapter = SearchAdapter()
-    private let bookListAdapter = BookListAdapter()
     private var actionListener: BookListActionListener?
     private let errorView: ErrorView = ErrorView()
     private var dateSelectionView =  DateSelectionView()
@@ -27,37 +34,26 @@ class BookListView: UIView, BookListDisplayer, DateSelectionViewDelegate {
     }
     
     private func setup() {
-        addSubview(bookList)
+        addSubview(bookListView)
         addSubview(searchView)
         addSubview(activityIndicator)
         addSubview(errorView)
+        
         addSubview(dateSelectionView)
         dateSelectionView.delegate = self
-        configureTableView()
+        
         searchView.placeholder = "Search"
         searchView.delegate = searchViewAdapter
         applyConstraints()
         activityIndicator.isHidden = true
         dateSelectionView.isHidden = true
 }
-        
-    private func configureTableView() {
-        bookList.tableFooterView = UIView(frame: CGRect.zero)
-        bookList.dataSource = bookListAdapter
-        bookList.delegate = bookListAdapter
-        bookList.estimatedRowHeight = 200
-        bookList.rowHeight = UITableViewAutomaticDimension
-        registerCells()
-    }
-    
-    private func registerCells() {
-        bookList.register(BookTableViewCell.self, forCellReuseIdentifier: "Cell")
-    }
     
     private func applyConstraints() {
         searchView.pinToSuperview(edges: [.top, .leading, .trailing])
-        bookList.pin(edge: .top, to: .bottom, of: searchView)
-        bookList.pinToSuperview(edges: [.bottom, .leading, .trailing])
+        bookListView.pin(edge: .top, to: .bottom, of: searchView)
+        bookListView.pinToSuperview(edges: [.bottom, .leading, .trailing])
+
         activityIndicator.pinToSuperviewEdges()
         errorView.pinToSuperviewEdges()
         dateSelectionView.pinToSuperview(edges: [.leading, .trailing])
@@ -87,15 +83,14 @@ class BookListView: UIView, BookListDisplayer, DateSelectionViewDelegate {
     
     func update(with books: [Book]) {
         activityIndicator.isHidden = true
-        bookList.isHidden = false
+        bookListView.isHidden = false
         errorView.isHidden = true
-        bookListAdapter.updateViewState(with: books)
-        bookList.reloadData()
+        bookList.updateTableView(with: books)
     }
     
     func update(with errorViewState: ErrorViewState) {
         activityIndicator.isHidden = true
-        bookList.isHidden = true
+        bookListView.isHidden = true
         errorView.isHidden = false
         errorView.updateViewWithError(error: errorViewState)
     }
